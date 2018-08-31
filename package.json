@@ -4,12 +4,13 @@
   "description": "JavaScript development environment Pluralsight course by Cory House",
   "comment1": ">npm start will run (prestart,start,poststart)",
   "comment2": "scripts are run at the commend line when you stype npm run {script-alias}",
-  "comment3": "npm-run-all allows multiple scripts to run in parallel",,
+  "comment3": "npm-run-all allows multiple scripts to run in parallel",
   "comment4": "Now have 2 different startups: 'npm start' OR 'npm run share'",
+  "comment5": "Change 'prestart' to use babel-node so that es6 is transpiled",
   "scripts": {
-    "prestart": "node buildScripts/startMessage.js",
+    "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel security-check open:src",
-    "open:src": "node buildScripts/srcServer.js",
+    "open:src": "babel-node buildScripts/srcServer.js",
     "security-check": "nsp check",
     "localtunnel": "lt --port 3000 --subdomain coder-kev",
     "share": "npm-run-all --parallel open:src localtunnel"
