@@ -2,9 +2,13 @@
   "name": "javascript-development-environment",
   "version": "1.0.0",
   "description": "JavaScript development environment Pluralsight course by Cory House",
+  "comment1": ">npm start will run (prestart,start,poststart)",
+  "comment2": "scripts are run at the commend line when you stype npm run {script-alias}",
+  "comment3": "npm-run-all allows multiple scripts to run in parallel",
   "scripts": {
     "prestart": "node buildScripts/startMessage.js",
-    "start": "node buildScripts/srcServer.js",
+    "start": "npm-run-all --parallel security-check open:src",
+    "open:src": "node buildScripts/srcServer.js",
     "security-check": "nsp check",
     "share": "lt --port 3000 --subdomain coder-kev"
   },
